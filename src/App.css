@@ -63,3 +63,14 @@
 .toggle-button:hover {
   background-color: #0056b3;
 }
+
+.time-elapsed {
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 20px;
+  background-color: #00000082;
+  margin-left: 30px;
+  padding: 10px;
+  border-radius: 20px;
+}

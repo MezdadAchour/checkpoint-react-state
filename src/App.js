@@ -14,7 +14,20 @@ class App extends React.Component {
         profession: "Développeur Web",
       },
       show: true,
+      timeElapsed: 0,
     };
+  }
+  // composant monté
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState((prevState) => ({
+        timeElapsed: prevState.timeElapsed + 1,
+      }));
+    }, 1000);
+  }
+  // reinitialiser
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   // Méthode pour mettre à jour l'état
@@ -23,7 +36,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { person, show } = this.state;
+    const { person, show, timeElapsed } = this.state;
 
     return (
       <div className="App">
@@ -44,6 +57,10 @@ class App extends React.Component {
             {show ? "Cacher" : "Afficher"}
           </button>
         </div>
+        {/* temps */}
+        <p className="time-elapsed">
+          Temps écoulé depuis le montage : {timeElapsed} secondes
+        </p>
       </div>
     );
   }
